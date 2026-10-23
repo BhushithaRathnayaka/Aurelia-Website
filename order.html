@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Order – Aurelia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="order">
+<main>
+  <section class="sec page-head">
+    <h2>Your Order</h2>
+    <p id="orderMsg" class="msg" role="status" hidden></p>
+    <div id="cartEmpty" class="center" hidden>
+      <p class="muted">Your order is empty.</p>
+      <p><a href="menu.html" class="btn">Browse the menu</a></p>
+    </div>
+    <div id="orderWrap" class="order-wrap" hidden>
+      <div>
+        <div id="cartLines" class="cart-lines"></div>
+        <div class="cart-total"><span>Total</span><b id="cartTotal">$0.00</b></div>
+      </div>
+      <form id="checkoutForm" class="form" novalidate>
+        <label>Name<input type="text" name="name" required autocomplete="name"></label>
+        <label>Phone<input type="tel" name="phone" required autocomplete="tel"></label>
+        <label>Address or table number<input type="text" name="where" required placeholder="e.g. Table 7, or delivery address"></label>
+        <label>Notes (optional)<textarea name="notes" rows="2" placeholder="Allergies or special requests"></textarea></label>
+        <button class="btn" type="submit">Place order</button>
+        <p id="formErr" class="err" role="alert"></p>
+      </form>
+    </div>
+  </section>
+</main>
+<script src="js/store.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
 
