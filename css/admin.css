@@ -1,1 +1,107 @@
+/* ===== Tokens ===== */
+:root{
+  --bg:#0a0a0c; --bg2:#141416; --cream:#f5f0e6; --muted:#a8a294;
+  --gold:#c9a24d; --line:rgba(201,162,77,.25); --red:#e28b8b; --green:#8fc79a;
+  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+body{
+  min-height:100vh;font-family:var(--sans);font-weight:300;color:var(--cream);line-height:1.6;background-color:var(--bg);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><path d='M30 6 54 30 30 54 6 30Z' fill='none' stroke='%23c9a24d' stroke-opacity='.07'/></svg>"),
+    radial-gradient(ellipse at 15% 0%,rgba(201,162,77,.12),transparent 50%),
+    radial-gradient(ellipse at 90% 70%,rgba(201,162,77,.08),transparent 45%),
+    linear-gradient(180deg,#0a0a0c,#141416 50%,#0a0a0c);
+  background-attachment:fixed;
+}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15;color:var(--gold)}
+h2{font-size:2.2rem;margin-bottom:1rem}
+h3{font-size:1.4rem;margin:1.5rem 0 .7rem}
+code{color:var(--gold)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+/* ===== Buttons & fields ===== */
+.btn{display:inline-block;padding:.75rem 1.6rem;background:var(--gold);color:var(--bg);border:1px solid var(--gold);
+  font:500 .8rem var(--sans);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:.25s}
+.btn:hover{background:transparent;color:var(--gold)}
+.btn.ghost{background:transparent;color:var(--gold)}
+.btn.ghost:hover{background:var(--gold);color:var(--bg)}
+.btn.danger{background:transparent;color:var(--red);border-color:var(--red)}
+.btn.danger:hover{background:var(--red);color:var(--bg)}
+.btn.sm{padding:.4rem .9rem;font-size:.7rem}
+label{display:grid;gap:.35rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+label.check{display:flex;align-items:center;gap:.6rem;text-transform:none;letter-spacing:0;font-size:.95rem;color:var(--cream)}
+label.check input{width:auto}
+input,select,textarea{width:100%;background:var(--bg);color:var(--cream);border:1px solid var(--line);padding:.7rem;
+  font:300 1rem var(--sans);letter-spacing:0;text-transform:none;color-scheme:dark}
+input:focus,select:focus{outline:none;border-color:var(--gold)}
+input[type=file]{padding:.55rem;cursor:pointer}
+.note{color:var(--muted);font-size:.88rem;margin:.6rem 0}
+.err{color:var(--red);min-height:1.4em;font-size:.9rem}
+.btn-row{display:flex;gap:.7rem;flex-wrap:wrap;margin:.6rem 0}
+
+/* ===== Login ===== */
+.login{min-height:100vh;display:grid;place-items:center;padding:1.5rem;
+  background:radial-gradient(circle at 50% 40%,rgba(201,162,77,.14),transparent 55%)}
+.card{width:min(380px,100%);background:var(--bg2);border:1px solid var(--gold);padding:2.5rem 2rem;display:grid;gap:.9rem;text-align:center}
+.card h1{font-size:2.6rem;letter-spacing:.25em}
+.sub{color:var(--muted)}
+.card input{text-align:center}
+.back{font-size:.8rem;color:var(--muted)}
+.back:hover{color:var(--gold)}
+
+/* ===== Dashboard ===== */
+.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 5%;
+  background:rgba(10,10,12,.92);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.brand{font:400 1.6rem var(--serif);letter-spacing:.2em;color:var(--gold)}
+.brand small{font:300 .75rem var(--sans);letter-spacing:.15em;color:var(--muted);text-transform:uppercase}
+.top-act{display:flex;gap:.5rem}
+.tabs{display:flex;gap:.4rem;padding:1rem 5% 0;overflow-x:auto;border-bottom:1px solid var(--line)}
+.tab{background:none;border:1px solid transparent;border-bottom:0;color:var(--muted);padding:.7rem 1.4rem;font:400 .85rem var(--sans);
+  letter-spacing:.1em;text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.tab:hover{color:var(--cream)}
+.tab.active{color:var(--gold);border-color:var(--line);background:var(--bg2)}
+.wrap{max-width:980px;margin:0 auto;padding:2rem 5% 4rem}
+
+.grid-form{display:grid;grid-template-columns:2fr 1fr 1fr;gap:.9rem;background:var(--bg2);border:1px solid var(--line);padding:1.3rem}
+.grid-form .full{grid-column:1/-1}
+.preview{display:flex;align-items:center;gap:1rem}
+.preview img{width:120px;aspect-ratio:16/10;object-fit:cover;border:1px solid var(--line)}
+
+.list{display:grid;gap:.6rem}
+.item{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:var(--bg2);border:1px solid var(--line);padding:.8rem 1rem}
+.item .main{display:flex;gap:.9rem;align-items:center;min-width:0}
+.item img.th{width:64px;aspect-ratio:1;object-fit:cover;border:1px solid var(--line);flex-shrink:0}
+.item b{font-weight:500}
+.item small{display:block;color:var(--muted);overflow-wrap:anywhere}
+.item .act{display:flex;gap:.4rem;flex-shrink:0}
+.empty{color:var(--muted)}
+
+/* Orders */
+.order{background:var(--bg2);border:1px solid var(--gold);padding:1rem 1.2rem;display:grid;gap:.5rem}
+.order.done{border-color:var(--line);opacity:.6}
+.order-head{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.tag{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:.15rem .6rem;border:1px solid var(--gold);color:var(--gold);align-self:center}
+.order.done .tag{border-color:var(--green);color:var(--green)}
+.order ul{list-style:none;color:var(--muted)}
+.order .total{font:400 1.5rem var(--serif);color:var(--gold)}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:.8rem;margin:1rem 0}
+.stat{background:var(--bg2);border:1px solid var(--line);padding:1rem}
+.stat b{display:block;font:400 2rem var(--serif);color:var(--gold)}
+.stat span{color:var(--muted);font-size:.85rem}
+
+.toast{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);background:var(--gold);color:var(--bg);
+  padding:.7rem 1.4rem;font-size:.9rem;z-index:50}
+
+/* ===== Responsive ===== */
+@media(max-width:700px){
+  .grid-form{grid-template-columns:1fr}
+  .item{flex-direction:column;align-items:stretch}
+  .item .act{justify-content:flex-end}
+  .brand{font-size:1.3rem}
+  h2{font-size:1.8rem}
+}
 
