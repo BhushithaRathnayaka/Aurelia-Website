@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Aurelia – Host Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<!-- Login -->
+<section id="login" class="login">
+  <form id="loginForm" class="card" autocomplete="off">
+    <h1>Aurelia</h1>
+    <p class="sub">Host &amp; kitchen</p>
+    <input type="password" id="pw" placeholder="Password" required autofocus>
+    <p id="loginErr" class="err" role="alert"></p>
+    <button class="btn" type="submit">Sign in</button>
+    <a href="index.html" class="back">&larr; Back to website</a>
+  </form>
+</section>
+
+<!-- Dashboard -->
+<div id="dash" hidden>
+  <header class="top">
+    <span class="brand">Aurelia <small>Host</small></span>
+    <div class="top-act">
+      <a href="index.html" class="btn sm ghost">View site</a>
+      <button id="logout" class="btn sm danger">Log out</button>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-tab="menu">Menu Manager</button>
+    <button class="tab" data-tab="orders" id="ordTab">Kitchen Orders</button>
+    <button class="tab" data-tab="cleanup">Auto-Delete</button>
+    <button class="tab" data-tab="backup">Data Backup</button>
+  </nav>
+
+  <main class="wrap">
+    <!-- Tab 1: Menu -->
+    <section id="tab-menu" class="panel">
+      <h2>Menu Manager</h2>
+      <form id="dishForm" class="grid-form">
+        <input type="hidden" id="dId">
+        <label>Name<input id="dName" required></label>
+        <label>Category<select id="dCat">
+          <option>Starters</option><option>Mains</option><option>Desserts</option><option>Drinks</option>
+        </select></label>
+        <label>Price ($)<input id="dPrice" type="number" min="0" step="0.5" required></label>
+        <label class="full">Description<input id="dDesc"></label>
+        <label class="full">Photo<input type="file" id="dImg" accept="image/*"></label>
+        <div class="full preview" id="dPreview" hidden>
+          <img id="dPrevImg" alt="Preview"><button type="button" class="btn sm danger" id="dImgRemove">Remove photo</button>
+        </div>
+        <label class="check full"><input type="checkbox" id="dFeat"> Show on home page</label>
+        <div class="full btn-row">
+          <button class="btn" type="submit" id="dSave">Add dish</button>
+          <button class="btn ghost" type="button" id="dCancel" hidden>Cancel edit</button>
+        </div>
+      </form>
+      <h3 id="dCount"></h3>
+      <div id="dishList" class="list"></div>
+    </section>
+
+    <!-- Tab 2: Orders -->
+    <section id="tab-orders" class="panel" hidden>
+      <h2>Kitchen Orders</h2>
+      <p class="note">Orders placed in this browser appear here and refresh automatically.</p>
+      <div id="orderList" class="list"></div>
+    </section>
+
+    <!-- Tab 3: Auto-delete -->
+    <section id="tab-cleanup" class="panel" hidden>
+      <h2>Auto-Delete</h2>
+      <p class="note">Orders older than 30 days are deleted automatically each time this dashboard loads, and every 10 minutes while it is open.</p>
+      <div id="cleanInfo" class="stats"></div>
+      <div class="btn-row"><button class="btn" id="cleanNow">Run cleanup now</button></div>
+    </section>
+
+    <!-- Tab 4: Backup -->
+    <section id="tab-backup" class="panel" hidden>
+      <h2>Data Backup</h2>
+      <h3>Export</h3>
+      <div class="btn-row">
+        <button class="btn" data-export="menu">menu.json</button>
+        <button class="btn ghost" data-export="orders">orders.json</button>
+      </div>
+      <p class="note">To update the live menu: export menu.json, place it in a <code>data/</code> folder in your repository and commit. Visitors without local data will load it.</p>
+      <h3>Import</h3>
+      <label>Choose JSON file(s)<input type="file" id="iFile" accept="application/json,.json" multiple></label>
+      <p class="note">Files with "order" in the name go to orders; everything else goes to the menu. Imported data replaces current data.</p>
+    </section>
+  </main>
+</div>
+
+<script src="js/store.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
 
