@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu – Aurelia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="menu">
+<main>
+  <section class="sec page-head">
+    <h2>The Menu</h2>
+    <div class="filters" id="filters">
+      <button class="chip active" data-cat="all">All</button>
+      <button class="chip" data-cat="Starters">Starters</button>
+      <button class="chip" data-cat="Mains">Mains</button>
+      <button class="chip" data-cat="Desserts">Desserts</button>
+      <button class="chip" data-cat="Drinks">Drinks</button>
+    </div>
+    <div id="menuGrid" class="menu-grid"></div>
+  </section>
+</main>
+<script src="js/store.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
 
